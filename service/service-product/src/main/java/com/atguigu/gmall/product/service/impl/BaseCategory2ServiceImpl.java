@@ -7,6 +7,7 @@ import com.atguigu.gmall.product.service.BaseCategory2Service;
 import com.atguigu.gmall.product.mapper.BaseCategory2Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -43,6 +44,8 @@ public class BaseCategory2ServiceImpl extends ServiceImpl<BaseCategory2Mapper, B
 
         return list;
     }
+
+
 }
 
 
