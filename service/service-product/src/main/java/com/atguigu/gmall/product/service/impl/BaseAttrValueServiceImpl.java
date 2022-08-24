@@ -10,11 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
-* @author lfy
-* @description 针对表【base_attr_value(属性值表)】的数据库操作Service实现
-* @createDate 2022-08-23 10:12:44
-*/
+
 @Service
 public class BaseAttrValueServiceImpl extends ServiceImpl<BaseAttrValueMapper, BaseAttrValue>
     implements BaseAttrValueService{

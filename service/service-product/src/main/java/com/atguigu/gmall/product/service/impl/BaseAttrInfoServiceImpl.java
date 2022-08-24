@@ -13,11 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author lfy
- * @description 针对表【base_attr_info(属性表)】的数据库操作Service实现
- * @createDate 2022-08-23 10:12:44
- */
+
 @Service
 public class BaseAttrInfoServiceImpl extends ServiceImpl<BaseAttrInfoMapper, BaseAttrInfo>
         implements BaseAttrInfoService {
