@@ -27,7 +27,6 @@ public class SpuController {
                              @PathVariable("ps") Long ps,
                              @RequestParam("category3Id") Long category3Id){
         Page<SpuInfo> page = new Page<>(pn,ps);
-
         QueryWrapper<SpuInfo> wrapper = new QueryWrapper<>();
         wrapper.eq("category3_id",category3Id);
 
