@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-/**
- * 获取ip地址
- */
 public class IpUtil {
 
     public static String getIpAddress(HttpServletRequest request) {
