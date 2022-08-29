@@ -13,3 +13,14 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
+
+
+app:
+  minio:
+    endpoint: http://192.168.2.110:9000
+    ak: admin
+    sk: admin123456
+    bucket-name: gmall
+  thread-pool:
+    core: 4
+    max: 8
