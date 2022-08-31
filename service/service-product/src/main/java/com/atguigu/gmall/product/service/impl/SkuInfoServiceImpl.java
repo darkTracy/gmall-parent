@@ -45,8 +45,8 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo>
     BaseCategory3Mapper baseCategory3Mapper;
 
 
-    @Autowired
-    RedissonClient redissonClient;
+//    @Autowired
+//    RedissonClient redissonClient;
     @Transactional
     @Override
     public void saveSkuInfo(SkuInfo info) {
@@ -76,8 +76,8 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo>
         skuSaleAttrValueService.saveBatch(saleAttrValueList);
 
         //把这个SkuId放到布隆过滤器中
-        RBloomFilter<Object> filter = redissonClient.getBloomFilter(SysRedisConst.BLOOM_SKUID);
-        filter.add(skuId);
+//        RBloomFilter<Object> filter = redissonClient.getBloomFilter(SysRedisConst.BLOOM_SKUID);
+//        filter.add(skuId);
     }
 
     @Override
