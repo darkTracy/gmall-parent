@@ -3,6 +3,7 @@ package com.atguigu.gmall.item.cache.impl;
 import com.atguigu.gmall.common.constant.SysRedisConst;
 import com.atguigu.gmall.common.util.Jsons;
 import com.atguigu.gmall.item.cache.CacheOpsService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.redisson.api.RBloomFilter;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;

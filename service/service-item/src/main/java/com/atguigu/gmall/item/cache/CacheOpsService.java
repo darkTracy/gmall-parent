@@ -1,6 +1,8 @@
 package com.atguigu.gmall.item.cache;
 
 
+import com.atguigu.gmall.model.to.SkuDetailTo;
+
 public interface CacheOpsService {
 
     <T>T getCacheData(String cacheKey,
