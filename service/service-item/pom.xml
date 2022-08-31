@@ -24,6 +24,7 @@
             <optional>true</optional>
         </dependency>
 
+        <!--        aa  -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -31,7 +32,7 @@
         </dependency>
 
 
-        <!--        SpringBoot的整个线上监控-->
+        <!--        SpringBoot的整个线上监控   -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -44,6 +45,9 @@
             <artifactId>guava</artifactId>
             <version>31.1-jre</version>
         </dependency>
+
+
+
 
 
     </dependencies>
