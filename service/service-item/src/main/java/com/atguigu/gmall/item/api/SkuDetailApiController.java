@@ -26,7 +26,6 @@ public class SkuDetailApiController {
     public Result<SkuDetailTo> getSkuDetail(@PathVariable("skuId")Long skuId){
         //商品的详情
         SkuDetailTo skuDetailTo = detailService.getSkuDetail(skuId);
-
         return Result.ok(skuDetailTo);
     }
 }

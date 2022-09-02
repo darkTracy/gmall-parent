@@ -47,7 +47,6 @@ public interface SkuDetailFeignClient {
      */
     @GetMapping("/skudetail/price/{skuId}")
     Result<BigDecimal> getSku1010Price(@PathVariable("skuId")Long skuId);
-
     /**
      * 查询sku对应的spu定义的所有销售属性名和值。并且标记出当前sku是哪个
      * @param skuId
@@ -57,8 +56,6 @@ public interface SkuDetailFeignClient {
     @GetMapping("/skudetail/saleattrvalues/{skuId}/{spuId}")
     Result<List<SpuSaleAttr>> getSkuSaleattrvalues(@PathVariable("skuId") Long skuId,
                                                           @PathVariable("spuId") Long spuId);
-
-
     /**
      * 查sku组合 valueJson
      * @param spuId
@@ -66,7 +63,6 @@ public interface SkuDetailFeignClient {
      */
     @GetMapping("/skudetail/valuejson/{spuId}")
     Result<String> getSKuValueJson(@PathVariable("spuId") Long spuId);
-
 
     /**
      * 查分类

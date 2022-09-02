@@ -5,8 +5,7 @@ import com.atguigu.gmall.model.to.SkuDetailTo;
 
 public interface CacheOpsService {
 
-    <T>T getCacheData(String cacheKey,
-                             Class<T> clz);
+    <T>T getCacheData(String cacheKey, Class<T> clz);
 
     /**
      * 布隆过滤器判断是否有这个商品
