@@ -7,7 +7,7 @@ spring:
       master:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.jdbc.Driver
-        # http://192.168.200.1:8888/aaaa?a=b&c=d
+        # http://192.168.2.1:8888/aaaa?a=b&c=d
         jdbcUrl: jdbc:mysql://192.168.200.100:3306/gmall_product?useSSL=false&useUnicode=true&characterEncoding=UTF-8
         username: root
         password: 123456
@@ -15,14 +15,14 @@ spring:
       slave_01:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.jdbc.Driver
-        jdbcUrl: jdbc:mysql://192.168.200.100:3307/gmall_product?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        jdbcUrl: jdbc:mysql://192.168.2.110:3307/gmall_product?useSSL=false&useUnicode=true&characterEncoding=UTF-8
         username: root
         password: 123456
 
       slave_02:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.jdbc.Driver
-        jdbcUrl: jdbc:mysql://192.168.200.100:3308/gmall_product?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        jdbcUrl: jdbc:mysql://192.168.2.110:3308/gmall_product?useSSL=false&useUnicode=true&characterEncoding=UTF-8
         username: root
         password: 123456
 

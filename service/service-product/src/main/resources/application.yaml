@@ -12,7 +12,7 @@ spring:
 #    active: sharding,dev  #主文件 application.yaml 和激活的 application-{profile}.yaml 同时生效
 
   datasource:
-    url: jdbc:mysql://192.168.200.100:3306/gmall_product?useSSL=false&characterEncoding=utf-8
+    url: jdbc:mysql://192.168.2.110:3306/gmall_product?useSSL=false&characterEncoding=utf-8
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
@@ -21,7 +21,7 @@ spring:
 #自定义配置
 app:
   minio:
-    endpoint: http://192.168.200.100:9000
+    endpoint: http://192.168.2.110:9000
     ak: admin
     sk: admin123456
     bucket-name: gmall
