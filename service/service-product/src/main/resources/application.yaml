@@ -6,6 +6,9 @@ server:
 
 #数据源配置好
 spring:
+  main:
+    #允许存在多个Feign调用相同Service的接口
+    allow-bean-definition-overriding: true
   profiles:
     include: sharding  #包含的文件不用区分激活的profile
   #  profiles:

@@ -8,17 +8,24 @@ import org.redisson.api.RLock;
 import org.redisson.api.RReadWriteLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
 
 @RequestMapping("/lock")
 @RestController
 public class LockTestController {
+
+    @Value("${aaa}")
+    String aaa;
+    @GetMapping("/aaa")
+    public String aaaValue(){
+        return aaa;
+    }
 
     @Autowired
     StringRedisTemplate redisTemplate;

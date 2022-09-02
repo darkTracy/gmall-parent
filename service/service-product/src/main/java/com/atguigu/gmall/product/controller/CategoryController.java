@@ -1,17 +1,17 @@
 package com.atguigu.gmall.product.controller;
 
+
 import com.atguigu.gmall.common.result.Result;
 import com.atguigu.gmall.model.product.BaseCategory1;
 import com.atguigu.gmall.model.product.BaseCategory2;
 import com.atguigu.gmall.model.product.BaseCategory3;
+import com.atguigu.gmall.product.mapper.BaseCategory1Mapper;
 import com.atguigu.gmall.product.service.BaseCategory1Service;
 import com.atguigu.gmall.product.service.BaseCategory2Service;
 import com.atguigu.gmall.product.service.BaseCategory3Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +21,7 @@ import java.util.List;
  * 所有请求全部返回 Result 对象的JSON。所有要携带的数据放到Result的data属性内即可
  *
  */
+
 
 //@ResponseBody   所有的响应数据都直接写给浏览器（如果是对象写成json，如果是文本就写成普通字符串）
 //@Controller 这个类是来接受请求的

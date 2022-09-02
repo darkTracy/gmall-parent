@@ -12,6 +12,10 @@ import java.util.List;
 */
 public interface SkuImageService extends IService<SkuImage> {
 
-
+    /**
+     * 查询某个sku的所有图片
+     * @param skuId
+     * @return
+     */
     List<SkuImage> getSkuImage(Long skuId);
 }
