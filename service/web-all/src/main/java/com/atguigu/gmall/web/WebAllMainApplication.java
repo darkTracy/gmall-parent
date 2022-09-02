@@ -25,6 +25,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringCloudApplication
 public class WebAllMainApplication {
 
+
     public static void main(String[] args) {
         SpringApplication.run(WebAllMainApplication.class,args);
     }
