@@ -35,7 +35,7 @@
         <alibaba.version>2.2.5.RELEASE</alibaba.version>
         <gmall.version>1.0</gmall.version>
         <mybatis-plus.version>3.4.1</mybatis-plus.version>
-        <mysql.version>5.1.46</mysql.version>
+<!--        <mysql.version>5.1.46</mysql.version>-->
         <swagger.version>2.7.0</swagger.version>
         <fastdfs.version>1.27.0.0</fastdfs.version>
         <lombok.version>1.18.10</lombok.version>
@@ -72,7 +72,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
+                <version>8.0.22</version>
             </dependency>
 
             <!--swagger-->

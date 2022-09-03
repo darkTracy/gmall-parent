@@ -8,7 +8,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.jdbc.Driver
         # http://192.168.2.1:8888/aaaa?a=b&c=d
-        jdbcUrl: jdbc:mysql://192.168.200.100:3306/gmall_product?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        jdbcUrl: jdbc:mysql://192.168.2.110:3306/gmall_product?useSSL=false&useUnicode=true&characterEncoding=UTF-8
         username: root
         password: 123456
 

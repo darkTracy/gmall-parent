@@ -20,12 +20,12 @@ import java.util.concurrent.TimeUnit;
 @RestController
 public class LockTestController {
 
-    @Value("${aaa}")
-    String aaa;
-    @GetMapping("/aaa")
-    public String aaaValue(){
-        return aaa;
-    }
+//    @Value("${aaa}")
+//    String aaa;
+//    @GetMapping("/aaa")
+//    public String aaaValue(){
+//        return aaa;
+//    }
 
     @Autowired
     StringRedisTemplate redisTemplate;
