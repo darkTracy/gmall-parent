@@ -1,18 +1,11 @@
 server:
   port: 7001
-
 spring:
   main:
     #允许存在多个Feign调用相同Service的接口
     allow-bean-definition-overriding: true
-
-
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-  zipkin:
-    base-url: http://192.168.2.110:9411/
-    sender:
-      type: web
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
