@@ -1,6 +1,7 @@
 package com.atguigu.gmall.search.api;
 
 
+import brave.http.HttpServerResponse;
 import com.atguigu.gmall.common.result.Result;
 import com.atguigu.gmall.model.list.Goods;
 import com.atguigu.gmall.model.vo.search.SearchParamVo;
@@ -43,5 +44,15 @@ public class SearchApiController {
     public Result<SearchResponseVo> search(@RequestBody SearchParamVo paramVo){
         SearchResponseVo responseVo = goodsService.search(paramVo);
         return Result.ok(responseVo);
+    }
+
+    @GetMapping("/goods/hotscore/{skuId}")
+    public Result updateHotScore(
+            @PathVariable("skuId") Long skuId,
+            @RequestParam("score") Long score,
+            HttpServerResponse response
+    ){
+        goodsService.updateHotScore(skuId,score);
+        return Result.ok();
     }
 }
