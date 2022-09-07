@@ -45,6 +45,9 @@ implements UserInfoService{
             return vo;
         }
             return null;
-
+    }
+    @Override
+    public void logout(String token) {
+        redisTemplate.delete(token);
     }
 }

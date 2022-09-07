@@ -12,4 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface UserInfoService extends IService<UserInfo> {
 
     LoginSuccessVo login(UserInfo info);
+
+    void logout(String token);
 }
