@@ -1,12 +1,18 @@
 package com.atguigu.gmall.web.controller;
+import com.atguigu.gmall.common.constant.SysRedisConst;
 import com.atguigu.gmall.common.result.Result;
 import com.atguigu.gmall.feign.cart.CartFeignClient;
+import com.atguigu.gmall.model.product.SkuInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 @Controller
 public class CartController {
     @Autowired

@@ -1,11 +1,15 @@
 server:
   port: 7001
+
 spring:
   main:
-    #允许存在多个Feign调用相同Service的接口
     allow-bean-definition-overriding: true
+
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
+
+
+
