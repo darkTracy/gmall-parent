@@ -56,20 +56,14 @@ import java.util.concurrent.ConcurrentHashMap;
  *    2）、复杂CRUD，ElasticsearchRestTemplate 自己调用相关的方法构造复杂的DSL完成功能
  *
  */
-
 @EnableElasticsearchRepositories  //开启ES的自动仓库功能。
 @SpringCloudApplication
 public class SearchMainApplication {
     public static void main(String[] args) {
         SpringApplication.run(SearchMainApplication.class,args);
-
         //1、最笨的锁
         Map<Object, Object> map = Collections.synchronizedMap(new HashMap<>());
-
         //2、聪明的锁，分段锁。 key锁太细了，锁很多，内存浪费
-
         // key进行hashcode；  a,b,c   d,e,f   g,h
-
-
     }
 }

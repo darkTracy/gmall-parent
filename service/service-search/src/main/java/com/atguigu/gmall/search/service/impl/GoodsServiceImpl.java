@@ -54,10 +54,13 @@ public class GoodsServiceImpl implements GoodsService {
     public void saveGoods(Goods goods) {
         goodsRepository.save(goods);
     }
+
     @Override
     public void deleteGoods(Long skuId) {
         goodsRepository.deleteById(skuId);
     }
+
+
     /**
      * 去ES检索商品
      * @param paramVo
@@ -79,12 +82,16 @@ public class GoodsServiceImpl implements GoodsService {
         SearchResponseVo responseVo = buildSearchResponseResult(goods,paramVo);
         return responseVo;
     }
+
     @Override
     public void updateHotScore(Long skuId, Long score) {
+
         //1、找到商品
         Goods goods = goodsRepository.findById(skuId).get();
+
         //2、更新得分
         goods.setHotScore(score);
+
         //3、同步到es
         goodsRepository.save(goods);
 
@@ -93,12 +100,15 @@ public class GoodsServiceImpl implements GoodsService {
 //        esRestTemplate.update();
 
     }
+
+
     /**
      * 根据检索到的记录，构建响应结果
      * @param goods
      * @return
      */
-    private SearchResponseVo buildSearchResponseResult(SearchHits<Goods> goods, SearchParamVo paramVo) {
+    private SearchResponseVo buildSearchResponseResult(SearchHits<Goods> goods,
+                                                       SearchParamVo paramVo) {
         SearchResponseVo vo = new SearchResponseVo();
         //1、当时检索前端传来的所有参数
         vo.setSearchParam(paramVo);
@@ -173,23 +183,32 @@ public class GoodsServiceImpl implements GoodsService {
 
         return vo;
     }
+
     /**
      * 分析得到，当前检索的结果中，所有商品涉及了多少种平台属性
      * @param goods
      * @return
      */
     private List<AttrVo> buildAttrList(SearchHits<Goods> goods) {
+
         List<AttrVo> attrVos  = new ArrayList<>();
+
         //1、拿到整个属性的聚合结果
         ParsedNested attrAgg = goods.getAggregations().get("attrAgg");
+
+
         //2、拿到属性id的聚合结果
         ParsedLongTerms attrIdAgg = attrAgg.getAggregations().get("attrIdAgg");
+
         //3、遍历所有属性id
         for (Terms.Bucket bucket : attrIdAgg.getBuckets()) {
             AttrVo attrVo = new AttrVo();
+
+
             //3.1、属性id
             long attrId = bucket.getKeyAsNumber().longValue();
             attrVo.setAttrId(attrId);
+
             //3.2、属性名
             ParsedStringTerms attrNameAgg = bucket.getAggregations().get("attrNameAgg");
             String attrName = attrNameAgg.getBuckets().get(0).getKeyAsString();
@@ -202,10 +221,14 @@ public class GoodsServiceImpl implements GoodsService {
                 attrValues.add(value);
             }
             attrVo.setAttrValueList(attrValues);
+
+
             attrVos.add(attrVo);
         }
+
         return attrVos;
     }
+
     /**
      * 分析得到，当前检索的结果中，所有商品涉及了多少种品牌
      * @param goods
@@ -214,26 +237,35 @@ public class GoodsServiceImpl implements GoodsService {
     private List<TrademarkVo> buildTrademarkList(SearchHits<Goods> goods) {
         //StreamAPI
         List<TrademarkVo> trademarkVos = new ArrayList<>();
+
+
         //拿到 tmIdAgg 聚合
         ParsedLongTerms tmIdAgg = goods.getAggregations().get("tmIdAgg");
+
         //拿到品牌id桶聚合中的每个数据
         for (Terms.Bucket bucket : tmIdAgg.getBuckets()) {
             TrademarkVo trademarkVo = new TrademarkVo();
+
             //1、获取品牌id
             Long tmId = bucket.getKeyAsNumber().longValue();
             trademarkVo.setTmId(tmId);
+
             //2、获取品牌名
             ParsedStringTerms tmNameAgg = bucket.getAggregations().get("tmNameAgg");
             String tmName = tmNameAgg.getBuckets().get(0).getKeyAsString();
             trademarkVo.setTmName(tmName);
+
             //3、获取品牌logo
             ParsedStringTerms tmLogoAgg = bucket.getAggregations().get("tmLogoAgg");
             String tmLogo = tmLogoAgg.getBuckets().get(0).getKeyAsString();
             trademarkVo.setTmLogoUrl(tmLogo);
+
             trademarkVos.add(trademarkVo);
         }
+
         return trademarkVos;
     }
+
     /**
      * 制造老连接
      * @param paramVo
@@ -282,6 +314,8 @@ public class GoodsServiceImpl implements GoodsService {
         String url = builder.toString();
         return url;
     }
+
+
     /**
      * 根据前端传递来的所有请求参数构建检索条件
      * DSL：
@@ -397,15 +431,21 @@ public class GoodsServiceImpl implements GoodsService {
                 .terms("tmIdAgg")
                 .field("tmId")
                 .size(1000);
+
+
         //3.1 品牌聚合 - 品牌名子聚合
         TermsAggregationBuilder tmNameAgg = AggregationBuilders.terms("tmNameAgg").field("tmName").size(1);
         //3.2 品牌聚合 - 品牌logo子聚合
         TermsAggregationBuilder tmLogoAgg = AggregationBuilders.terms("tmLogoAgg").field("tmLogoUrl").size(1);
+
         tmIdAgg.subAggregation(tmNameAgg);
         tmIdAgg.subAggregation(tmLogoAgg);
 
         //品牌id聚合条件拼装完成
         query.addAggregation(tmIdAgg);
+
+
+
         //4、属性聚合
         //4.1 属性的整个嵌入式聚合
         NestedAggregationBuilder attrAgg = AggregationBuilders.nested("attrAgg", "attrs");

@@ -10,8 +10,6 @@
         <module>server-gateway</module>
         <module>mall-cache-starter</module>
     </modules>
-
-
     <!--引入spring boot 父工程1212-->
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -40,8 +38,6 @@
         <fastdfs.version>1.27.0.0</fastdfs.version>
         <lombok.version>1.18.10</lombok.version>
     </properties>
-
-
     <!--配置 dependencyManagement 锁定依赖的版本 并不是实际的依赖  。-->
 
     <dependencyManagement>
@@ -53,7 +49,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -61,20 +56,17 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <!--mybatis-plus 持久层-->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>8.0.22</version>
             </dependency>
-
             <!--swagger-->
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -87,7 +79,6 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>

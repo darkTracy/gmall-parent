@@ -1,14 +1,11 @@
 server:
   port: 10001
-
 spring:
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   elasticsearch:
     rest:
       uris: http://192.168.2.110:9200
-
-
 #dsl:
 #  aaa: findhaHAdadada
 #  ALL --- TRACE --- DEBUG --- INFO --WARN -- ERROR --OFF
@@ -16,4 +13,3 @@ logging:
   level:
     tracer: trace  #打开追踪器
     org.elasticsearch: trace
-

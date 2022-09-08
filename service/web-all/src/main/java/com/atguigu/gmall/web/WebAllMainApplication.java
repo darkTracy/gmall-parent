@@ -25,6 +25,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 }) //只会扫描主程序所在的子包
 @SpringCloudApplication
 public class WebAllMainApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(WebAllMainApplication.class,args);
     }
