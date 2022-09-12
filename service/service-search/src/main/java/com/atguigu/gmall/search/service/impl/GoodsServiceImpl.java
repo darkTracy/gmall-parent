@@ -422,10 +422,7 @@ public class GoodsServiceImpl implements GoodsService {
         }
         //===========模糊查询高亮功能结束=================
 
-
-
         //=========聚合分析上面DSL检索到的所有商品涉及了多少种品牌和多少种平台属性
-        //TODO
         //3、品牌聚合 - 品牌聚合分析条件
         TermsAggregationBuilder tmIdAgg = AggregationBuilders
                 .terms("tmIdAgg")

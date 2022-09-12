@@ -65,7 +65,7 @@
 
 
         <!--        网关-->
-        <!--        spring-cloud-starter-gateway-->
+<!--        spring-cloud-starter-gateway-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>

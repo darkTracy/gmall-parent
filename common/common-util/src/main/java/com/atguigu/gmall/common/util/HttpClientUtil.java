@@ -12,7 +12,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-
+/**
+ * HttpClient类 微信：
+ *
+ */
 public class HttpClientUtil {
 
     public static String doGet(String url)   {

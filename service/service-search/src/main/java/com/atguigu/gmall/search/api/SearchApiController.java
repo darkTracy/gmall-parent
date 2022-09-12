@@ -35,8 +35,6 @@ public class SearchApiController {
         goodsService.deleteGoods(skuId);
         return Result.ok();
     }
-
-
     /**
      * 商品检索
      * @param paramVo
@@ -47,8 +45,6 @@ public class SearchApiController {
         SearchResponseVo responseVo = goodsService.search(paramVo);
         return Result.ok(responseVo);
     }
-
-
     /**
      * 更新热度分
      * @param skuId

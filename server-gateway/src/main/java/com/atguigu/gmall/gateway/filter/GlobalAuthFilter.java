@@ -211,8 +211,10 @@ public class GlobalAuthFilter implements GlobalFilter {
                 tempId = httpCookie.getValue();
             }
         }
+
         return tempId;
     }
+
     /**
      * 重定向到指定位置
      * @param location
@@ -222,10 +224,12 @@ public class GlobalAuthFilter implements GlobalFilter {
     private Mono<Void> redirectToCustomPage(String location,
                                             ServerWebExchange exchange) {
         ServerHttpResponse response = exchange.getResponse();
+
         //1、重定向【302状态码 + 响应头中 Location: 新位置】
         response.setStatusCode(HttpStatus.FOUND);
         // http://passport.gmall.com/login.html?originUrl=http://gmall.com/
         response.getHeaders().add(HttpHeaders.LOCATION,location);
+
         //2、清除旧的错误的Cookie[token]（同名cookie并max-age=0）解决无限重定向问题
         ResponseCookie tokenCookie = ResponseCookie
                 .from("token", "777")
@@ -238,6 +242,7 @@ public class GlobalAuthFilter implements GlobalFilter {
         //3、响应结束
         return response.setComplete();
     }
+
     /**
      * 根据token的值去redis中查到 用户信息
      * @param tokenValue
@@ -250,6 +255,7 @@ public class GlobalAuthFilter implements GlobalFilter {
         }
         return null;
     }
+
     /**
      * 从cookie或请求头中取到  token 对应的值
      * @param exchange
@@ -298,11 +304,15 @@ public class GlobalAuthFilter implements GlobalFilter {
         //2、数据订阅者，感兴趣发布者的数据
         flux.subscribe((t) -> {
             System.out.println("消费者1：" + t + ":"+Thread.currentThread());
+
         });
+
 
         flux.subscribe((t) -> {
             System.out.println("消费者2：" + t +":"+Thread.currentThread());
         });
+
+
         flux.subscribe((t) -> {
             System.out.println("消费者3：" + t +":"+Thread.currentThread());
         });

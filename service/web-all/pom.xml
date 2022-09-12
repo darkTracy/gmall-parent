@@ -12,8 +12,8 @@
     <artifactId>web-all</artifactId>
     <description>所有的前端页面功能
         【
-        页面数据渲染（前端远程调用后台微服务）、
-        前端页面跳转逻辑（controller页面跳转逻辑）
+          页面数据渲染（前端远程调用后台微服务）、
+          前端页面跳转逻辑（controller页面跳转逻辑）
         】由这个服务负责</description>
 
     <properties>
